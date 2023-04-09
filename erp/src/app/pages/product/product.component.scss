@@ -1,0 +1,17 @@
+.section {
+    &__filter {
+        display: block;
+        width: 120rem;
+        height: 100%;
+    }
+
+    &__content {
+        height: 100%;
+    }
+
+    &__action {
+        display: block;
+        width: 120rem;
+        height: 100%;
+    }
+}

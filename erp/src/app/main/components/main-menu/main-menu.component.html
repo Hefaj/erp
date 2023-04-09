@@ -1,0 +1,10 @@
+<div [ngClass]="{'main-menu': true}">
+    <button mat-mini-fab color="primary" (click)="closeMenu()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    
+    <nav style="display: flex; flex-direction: column;">
+        <a (click)="closeMenu()" mat-stroked-button routerLink="/product" routerLinkActive="active" ariaCurrentWhenActive="page">Product</a>
+        <a (click)="closeMenu()" mat-stroked-button routerLink="/brand" routerLinkActive="active" ariaCurrentWhenActive="page">Brand</a>
+    </nav>
+</div>

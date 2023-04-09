@@ -1,0 +1,21 @@
+<div [ngClass]="{'main': true}">
+    <mat-drawer-container [ngClass]="{'main__container': true}" [hasBackdrop]="true" (backdropClick)="close()">
+        <mat-drawer [opened]="(menuStatus$ | async)! == MenuStatus.opened" mode="over">
+            <app-main-menu></app-main-menu>
+        </mat-drawer>
+
+        <div [ngClass]="{'main__container': true}">
+            <div [ngClass]="{'main__container__header': true}">
+                <app-breadcrumbs-bar></app-breadcrumbs-bar>
+            </div>
+
+            <div [ngClass]="{'main__container__page': true}">
+                <router-outlet></router-outlet>
+            </div>
+
+            <div *ngIf="(editedStatus$ | async)! == EditedStatus.edited" [ngClass]="{'main__container__footer': true}">
+                <app-change-bar></app-change-bar>
+            </div>
+        </div>
+    </mat-drawer-container>
+</div>

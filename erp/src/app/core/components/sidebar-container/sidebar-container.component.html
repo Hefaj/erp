@@ -1,0 +1,15 @@
+<div [ngClass]="{'sidebar-container' : true,
+                 'sidebar-container--rounded-corner-left' : true,
+                 'sidebar-container--rounded-corner-right' : false}">
+    <div [ngClass]="{'sidebar-container__top' : true}">
+        Top
+    </div>
+
+    <div [ngClass]="{'sidebar-container__middle' : true}">
+        <div *ngFor="let i of [].constructor(50)">Middleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+    </div>
+
+    <div [ngClass]="{'sidebar-container__buttom' : true}">
+        Bottom
+    </div>
+</div>
