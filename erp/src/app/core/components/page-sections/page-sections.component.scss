@@ -3,18 +3,14 @@
     height: 100%;
   
     &__filter {
-  
+      border-top-right-radius: 5rem;
     }
   
     &__content {
-      &__header {
-        padding: 4rem 5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+      
     }
   
     &__action {
+      border-top-left-radius: 5rem;
     }
   }

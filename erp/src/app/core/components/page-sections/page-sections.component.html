@@ -1,19 +1,10 @@
 <mat-sidenav-container [ngClass]="{'section' : true}">
-
     <mat-sidenav [ngClass]="{'section__filter' : true}" [opened]="(filterSectionStatus$ | async)! == SectionStatus.opened" mode="side">
       <ng-content select="[section_filter]"></ng-content>
     </mat-sidenav>
-  
-    <div [ngClass]="{'section__content__header' : true}">
-      <mat-slide-toggle [checked]="(filterSectionStatus$ | async)! == SectionStatus.opened" (change)="toggleSectionFilter()">
-      </mat-slide-toggle>
-  
-      <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.closed">
-      </app-selected-filter-list>
-  
-      <mat-slide-toggle [checked]="(actionSectionStatus$ | async)! == SectionStatus.opened" (change)="toggleSectionAction()">
-      </mat-slide-toggle>
-    </div>
+    
+    <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.closed">
+    </app-selected-filter-list>
   
     <ng-content select="[section_content]"></ng-content>
   

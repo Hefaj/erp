@@ -21,14 +21,5 @@ export class PageSectionsComponent {
 
   public SectionStatus = SectionStatus;
 
-  public constructor(private _store: Store) {}
-
-
-  public toggleSectionAction(): void {
-    this._store.dispatch(new ToggleSectionActionStatus());
-  }
-
-  public toggleSectionFilter(): void {
-    this._store.dispatch(new ToggleSectionFilterStatus());
-  }
+  public constructor() {}
 }
