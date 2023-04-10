@@ -3,10 +3,11 @@
       <ng-content select="[section_filter]"></ng-content>
     </mat-sidenav>
     
-    <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.opened">
-    </app-selected-filter-list>
-  
-    <ng-content select="[section_content]"></ng-content>
+    <div [ngClass]="{'section__content' : true}">
+      <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.opened">
+      </app-selected-filter-list>
+      <ng-content select="[section_content]"></ng-content>
+    </div>
   
     <mat-sidenav [ngClass]="{'section__action' : true}" [opened]="(actionSectionStatus$ | async)! == SectionStatus.opened" mode="side" position="end">
       <ng-content select="[section_action]"></ng-content>

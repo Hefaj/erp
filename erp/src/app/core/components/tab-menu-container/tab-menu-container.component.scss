@@ -1,7 +1,20 @@
+:host ::ng-deep .mat-mdc-tab-body-wrapper {
+  flex-grow: 1;
+}
+
 .tab-menu-container {
-  display: flex;
-  align-items: center;
-  padding: 0 5rem;
+  padding: 0 5rem 5rem;
 
   gap: 5rem;
+
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  &__tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -8,6 +8,7 @@ import { ProductSectionContent1Component } from './sections/contents/product-sec
 import { ProductSectionContent2Component } from './sections/contents/product-section-content-2/product-section-content-2.component';
 import { CommonModule } from '@angular/common';
 import { SidebarContainerComponent } from 'src/app/core/components/sidebar-container/sidebar-container.component';
+import { MaterialModule } from 'src/app/material.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SidebarContainerComponent } from 'src/app/core/components/sidebar-conta
     TabMenuContainerComponent,
     
     CommonModule,
+    MaterialModule,
     NgxsModule.forFeature([ProductState]),
   ]
 })

@@ -1,13 +1,21 @@
 <div [ngClass]="{'sidebar-container' : true}">
     <div [ngClass]="{'sidebar-container__top' : true}">
-        Top
+        <mat-card>
+            <mat-card-content>Top</mat-card-content>
+        </mat-card>
     </div>
 
     <div [ngClass]="{'sidebar-container__middle' : true}">
-        <div *ngFor="let i of [].constructor(50)">Middleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</div>
+        <mat-card *ngFor="let i of [].constructor(30)">
+            <mat-card-content>Simple card</mat-card-content>
+        </mat-card>
     </div>
 
     <div [ngClass]="{'sidebar-container__buttom' : true}">
-        Bottom
+        <mat-card>
+            <mat-card-actions style="display: flex; flex-direction: row-reverse;">
+                <button mat-raised-button color="warn">Filtruj</button>
+            </mat-card-actions>
+        </mat-card>
     </div>
 </div>
