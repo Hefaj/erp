@@ -8,19 +8,17 @@ import { ProductSectionContent1Component } from './sections/contents/product-sec
 import { ProductSectionContent2Component } from './sections/contents/product-section-content-2/product-section-content-2.component';
 import { CommonModule } from '@angular/common';
 import { SidebarContainerComponent } from 'src/app/core/components/sidebar-container/sidebar-container.component';
-import { SelectedFilterListComponent } from 'src/app/core/components/selected-filter-list/selected-filter-list.component';
 
 @NgModule({
   declarations: [
     ProductSectionContent1Component,
     ProductSectionContent2Component,
-
     ProductComponent,
   ],
   imports: [
     SidebarContainerComponent,
-    TabMenuContainerComponent,
     PageSectionsComponent,
+    TabMenuContainerComponent,
     
     CommonModule,
     NgxsModule.forFeature([ProductState]),

@@ -3,7 +3,7 @@
       <ng-content select="[section_filter]"></ng-content>
     </mat-sidenav>
     
-    <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.closed">
+    <app-selected-filter-list *ngIf="(filterSectionStatus$ | async)! == SectionStatus.opened">
     </app-selected-filter-list>
   
     <ng-content select="[section_content]"></ng-content>

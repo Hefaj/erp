@@ -1,16 +1,10 @@
 <div [ngClass]="{'tab-menu-container': true}">
-    <mat-slide-toggle [checked]="(filterSectionStatus$ | async)! == SectionStatus.opened" (change)="toggleSectionFilter()">
-    </mat-slide-toggle>
-
     <mat-tab-group style="flex-grow: 1;"  mat-stretch-tabs="true" mat-align-tabs="start">
-        <mat-tab *ngFor="let item of data">
+        <mat-tab style="height: 100rem;" *ngFor="let item of data">
             <ng-template mat-tab-label>
                 {{item.label}}
             </ng-template>
-            <!-- <ng-template [ngTemplateOutlet]="item.component"></ng-template> -->
+            <ng-template [ngComponentOutlet]="item.component"></ng-template>
         </mat-tab>
     </mat-tab-group>
-
-    <mat-slide-toggle [checked]="(actionSectionStatus$ | async)! == SectionStatus.opened" (change)="toggleSectionAction()">
-    </mat-slide-toggle>
 </div>
