@@ -9,9 +9,11 @@ import { ProductSectionContent2Component } from './sections/contents/product-sec
 import { CommonModule } from '@angular/common';
 import { SidebarContainerComponent } from 'src/app/core/components/sidebar-container/sidebar-container.component';
 import { MaterialModule } from 'src/app/material.module';
+import { ProductSectionAction1Component } from './sections/actions/product-section-action-1/product-section-action-1.component';
 
 @NgModule({
   declarations: [
+    ProductSectionAction1Component,
     ProductSectionContent1Component,
     ProductSectionContent2Component,
     ProductComponent,
