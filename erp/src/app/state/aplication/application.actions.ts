@@ -1,5 +1,3 @@
-import { SectionStatus } from "./application.state";
-
 export class Edited {
   static readonly type = '[Application] Edited';
 }

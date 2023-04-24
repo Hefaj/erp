@@ -27,28 +27,28 @@ export class SidebarContainerComponent implements AfterViewInit, OnDestroy {
   }
 
   public ngAfterViewInit(): void {
-    const positionStrategy = this._overlay.position()
-      .flexibleConnectedTo(this.elementRef)
-      .withPositions([
-        {
-          originX: 'start',
-          originY: 'top',
-          overlayX: 'end',
-          overlayY: 'top'
-        }
-      ])
-      .withLockedPosition(true)
-      .withFlexibleDimensions(false)
-      .withPush(false)
-      .withViewportMargin(0);
+    // const positionStrategy = this._overlay.position()
+    //   .flexibleConnectedTo(this.elementRef)
+    //   .withPositions([
+    //     {
+    //       originX: 'start',
+    //       originY: 'top',
+    //       overlayX: 'end',
+    //       overlayY: 'top'
+    //     }
+    //   ])
+    //   .withLockedPosition(true)
+    //   .withFlexibleDimensions(false)
+    //   .withPush(false)
+    //   .withViewportMargin(0);
 
-    const overlayRef = this._overlay.create({
-      hasBackdrop: true,
-      positionStrategy: positionStrategy,
-    });
+    // const overlayRef = this._overlay.create({
+    //   hasBackdrop: true,
+    //   positionStrategy: positionStrategy,
+    // });
 
-    const userProfilePortal = new ComponentPortal(ProductSectionAction1Component);
-    overlayRef.attach(userProfilePortal);
-    this._sub.add(overlayRef.backdropClick().subscribe(() => overlayRef.detach()));
+    // const userProfilePortal = new ComponentPortal(ProductSectionAction1Component);
+    // overlayRef.attach(userProfilePortal);
+    // this._sub.add(overlayRef.backdropClick().subscribe(() => overlayRef.detach()));
   }
 }

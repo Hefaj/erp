@@ -8,7 +8,7 @@ import { ProductSectionContent2Component } from './sections/contents/product-sec
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent {
-  
+
   public tabs: any[] = [
     {
       label: 'Produkty',

@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
 import { SidebarContainerComponent } from 'src/app/core/components/sidebar-container/sidebar-container.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ProductSectionAction1Component } from './sections/actions/product-section-action-1/product-section-action-1.component';
+import { ContentGridComponent } from 'src/app/core/components/content-grid/content-grid.component';
+import { TableComponent } from 'src/app/core/organisms/table/table.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { ProductSectionAction1Component } from './sections/actions/product-secti
     ProductSectionContent1Component,
     ProductSectionContent2Component,
     ProductComponent,
+    TableComponent,
   ],
   imports: [
     SidebarContainerComponent,
     PageSectionsComponent,
     TabMenuContainerComponent,
-    
+    ContentGridComponent,
+
     CommonModule,
     MaterialModule,
     NgxsModule.forFeature([ProductState]),
