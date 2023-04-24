@@ -1,6 +1,6 @@
 <div [ngClass]="{'tab-menu-container': true}">
     <mat-tab-group [ngClass]="{'tab-menu-container__tabs': true}" mat-stretch-tabs="true" mat-align-tabs="start">
-        <mat-tab  *ngFor="let item of data">
+        <mat-tab *ngFor="let item of data">
             <ng-template mat-tab-label>
                 {{item.label}}
             </ng-template>
