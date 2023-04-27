@@ -1,0 +1,16 @@
+<div [ngClass]="{'page' : true, 'page--action': action$ | async, 'page--filter': filter$ | async}">
+   
+    <div [ngClass]="{'page__sidebar page__filter' : true}" *ngIf="filter$ | async as filter">
+        <ng-template [ngComponentOutlet]="filter"></ng-template>
+    </div>
+
+    <app-tab-menu-container [ngClass]="{'page__content' : true}" [data$]="tab$">
+    </app-tab-menu-container>
+
+
+    <div [ngClass]="{'page__sidebar page__action' : true}" *ngIf="action$ | async as action">
+        <ng-template [ngComponentOutlet]="action"></ng-template>
+    </div>
+    
+</div>
+

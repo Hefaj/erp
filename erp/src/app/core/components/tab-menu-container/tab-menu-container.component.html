@@ -1,10 +1,15 @@
 <div [ngClass]="{'tab-menu-container': true}">
-    <mat-tab-group [ngClass]="{'tab-menu-container__tabs': true}" mat-stretch-tabs="true" mat-align-tabs="start">
-        <mat-tab *ngFor="let item of data">
+    <mat-tab-group [ngClass]="{'tab-menu-container__tabs': true}" mat-stretch-tabs="true" mat-align-tabs="start" (selectedIndexChange)="tabChange($event)">
+        <mat-tab *ngFor="let item of grid">
             <ng-template mat-tab-label>
                 {{item.label}}
             </ng-template>
-            <ng-template [ngComponentOutlet]="item.component"></ng-template>
+
+            <div [ngStyle]="{'grid-template-areas': item.pattern}" [ngClass]="{'tab-menu-container__content': true}">
+                <div *ngFor="let component of item.components" [ngStyle]="{'grid-area': component.gridName}" (click)="focus(component.component)">
+                    <ng-template [ngComponentOutlet]="component.component"></ng-template>
+                </div>
+            </div>
         </mat-tab>
     </mat-tab-group>
 </div>

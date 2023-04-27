@@ -18,6 +18,7 @@ import { ProductSectionAction2Component } from './sections/actions/product-secti
 import { ProductSectionAction3Component } from './sections/actions/product-section-action-3/product-section-action-3.component';
 import { ProductSectionFilter2Component } from './sections/filters/product-section-filter-2/product-section-filter-2.component';
 import { ProductSectionFilter3Component } from './sections/filters/product-section-filter-3/product-section-filter-3.component';
+import { PageComponent } from 'src/app/core/components/page/page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { ProductSectionFilter3Component } from './sections/filters/product-secti
     PageSectionsComponent,
     TabMenuContainerComponent,
     ContentGridComponent,
+
+    PageComponent,
 
     CommonModule,
     MaterialModule,

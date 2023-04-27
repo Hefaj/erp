@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { ITabPage, IScenario } from 'src/app/core/components/page/page.service';
 import { ProductSectionAction1Component } from './sections/actions/product-section-action-1/product-section-action-1.component';
 import { ProductSectionAction2Component } from './sections/actions/product-section-action-2/product-section-action-2.component';
 import { ProductSectionAction3Component } from './sections/actions/product-section-action-3/product-section-action-3.component';
@@ -12,44 +14,49 @@ import { ProductSectionFilter3Component } from './sections/filters/product-secti
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
+  public constructor(private _store: Store) {
+    
+  }
 
-  public tabs: any[] = [
+  public s1: IScenario = {
+    content: ProductSectionContent1Component,
+    filter: ProductSectionFilter1Component,
+    action: ProductSectionAction1Component
+  };
+
+  public s2: IScenario = {
+    content: ProductSectionContent2Component,
+    filter: ProductSectionFilter2Component,
+    action: ProductSectionAction2Component
+  };
+
+  public s3: IScenario = {
+    content: ProductSectionContent3Component,
+    action: ProductSectionAction3Component
+  };
+
+  public page: ITabPage[] = [
     {
-      label: 'Produkty',
-      component: ProductSectionContent1Component,
+      tabLabel: 'TAB_1',
+      grid: [
+        [ this.s2, this.s1, this.s1 ],
+        [ this.s3, this.s3, this.s3 ]
+      ]
     },
     {
-      label: 'Multimedia',
-      component: ProductSectionContent2Component,
-    }
-  ];
-
-  public page: any[] = [
-    {
-      label: 'TAB_1',
+      tabLabel: 'TAB_2',
       grid: [
-        [
-          {
-            content: ProductSectionContent1Component,
-            filter: ProductSectionFilter1Component,
-            action: ProductSectionAction1Component
-          },
-          {
-            content: ProductSectionContent2Component,
-            filter: ProductSectionFilter2Component,
-            action: ProductSectionAction2Component
-          }
-        ],
-        [
-          {
-            content: ProductSectionContent3Component,
-            filter: ProductSectionFilter3Component,
-            action: ProductSectionAction3Component
-          },
-        ]
+        [ this.s1, this.s3, this.s3 ],
+        [ this.s1, this.s2, this.s2 ]
+      ]
+    },
+    {
+      tabLabel: 'TAB_3',
+      grid: [
+        [ this.s3 ],
       ]
     }
   ];
