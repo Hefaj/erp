@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ITabPage, IScenario } from 'src/app/core/components/page/page.service';
+import { IPageDesktopData } from 'src/app/core/templates/page-desktop/models/IPageDesktopData';
 import { ProductSectionAction1Component } from './sections/actions/product-section-action-1/product-section-action-1.component';
 import { ProductSectionAction2Component } from './sections/actions/product-section-action-2/product-section-action-2.component';
 import { ProductSectionAction3Component } from './sections/actions/product-section-action-3/product-section-action-3.component';
@@ -41,9 +42,21 @@ export class ProductComponent {
   public page: ITabPage[] = [
     {
       tabLabel: 'TAB_1',
-      grid: [
-        [ this.s2, this.s1, this.s1 ],
-        [ this.s3, this.s3, this.s3 ]
+      tabs: [
+        {
+          tabLabel: 'SUBTAB_1',
+          grid: [
+            [ this.s2, this.s1, this.s1 ],
+            [ this.s3, this.s3, this.s3 ]
+          ],
+        },
+        {
+          tabLabel: 'SUBTAB_2',
+          grid: [
+            [ this.s2 ],
+            [ this.s3 ]
+          ],
+        }
       ]
     },
     {
@@ -60,4 +73,40 @@ export class ProductComponent {
       ]
     }
   ];
+
+
+  public pageData: IPageDesktopData = {
+    items: [
+      {
+        tabLabel: 'TAB_1',
+        grid: [
+          [this.s1]
+        ]
+      },
+      {
+        tabLabel: 'TAB_2',
+        subItems: [
+          {
+            tabLabel: 'SUBTAB_1',
+            grid: [
+              [this.s1, this.s2]
+            ]
+          },
+          {
+            tabLabel: 'SUBTAB_2',
+            grid: [
+              [this.s2]
+            ]
+          }
+        ]
+      },
+      {
+        tabLabel: 'TAB_3',
+        grid: [
+          [this.s1, this.s2],
+          [this.s3, this.s3]
+        ]
+      }
+    ]
+  };
 }

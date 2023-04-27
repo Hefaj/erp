@@ -19,6 +19,7 @@ import { ProductSectionAction3Component } from './sections/actions/product-secti
 import { ProductSectionFilter2Component } from './sections/filters/product-section-filter-2/product-section-filter-2.component';
 import { ProductSectionFilter3Component } from './sections/filters/product-section-filter-3/product-section-filter-3.component';
 import { PageComponent } from 'src/app/core/components/page/page.component';
+import { PageDesktopComponent } from 'src/app/core/templates/page-desktop/page-desktop.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,9 @@ import { PageComponent } from 'src/app/core/components/page/page.component';
     ContentGridComponent,
 
     PageComponent,
+
+
+    PageDesktopComponent,
 
     CommonModule,
     MaterialModule,

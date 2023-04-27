@@ -1,10 +1,10 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { ITabMenu } from '../tab-menu-container/tab-menu-container.component';
 
 export interface ITabPage {
   tabLabel: string;
-  grid: IScenario[][];
+  grid?: IScenario[][];
+  tabs?: ITabPage[];
 }
 
 export interface IScenario {
@@ -18,12 +18,12 @@ export interface IScenario {
 })
 export class PageService {
 
-  private _tabs$: BehaviorSubject<ITabMenu[]>;
+  private _tabs$: BehaviorSubject<ITabPage[]>;
   private _brain: Map<string, IScenario>;
   private _focused$: BehaviorSubject<IScenario>;
 
   public constructor() {
-    this._tabs$ = new BehaviorSubject([] as ITabMenu[]);
+    this._tabs$ = new BehaviorSubject([] as ITabPage[]);
     this._brain = new Map();
     this._focused$ = new BehaviorSubject({content: undefined});
   }
@@ -36,7 +36,7 @@ export class PageService {
     return this._focused$.pipe(map(x => x.filter));
   }
 
-  public getContent(): Observable<ITabMenu[]> {
+  public getContent(): Observable<ITabPage[]> {
     return this._tabs$;
   }
 
@@ -53,24 +53,25 @@ export class PageService {
   }
 
   private _prepareTabs(tabs: ITabPage[]) {
-    this._tabs$.next(tabs.map(x => {
-      return {
-        tabLabel: x.tabLabel,
-        grid: x.grid.map(x => x.map(y => y.content))
-      } as ITabMenu;
-    }));
+    this._tabs$.next(tabs);
   }
 
-  private _prepareScenarioDictionary(tabs: ITabPage[]): void {
+  private _prepareScenarioDictionary(tabs: ITabPage[] | undefined): void {
+    if (!tabs) return;
+    
     for (let tab of tabs) {
-      for (let column of tab.grid) {
-        for (let row of column) {
-          this._brain.set(row.content, {
-            content: row.content,
-            action: row.action,
-            filter: row.filter
-          });
+      if (tab.grid) {
+        for (let column of tab.grid) {
+          for (let row of column) {
+            this._brain.set(row.content, {
+              content: row.content,
+              action: row.action,
+              filter: row.filter
+            });
+          }
         }
+      } else {
+        this._prepareScenarioDictionary(tab.tabs);
       }
     }
   }

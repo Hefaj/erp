@@ -32,7 +32,6 @@ export interface ApplicationStateModel {
   editedStatus: EditedStatus;
   menuStatus: MenuStatus;
   sectionAction: SectionStatus,
-  componentAction: any,
   sectionFilter: SectionStatus,
   sectionModal: SectionStatus,
 
@@ -48,7 +47,6 @@ export type stateContext = StateContext<ApplicationStateModel>;
     editedStatus: EditedStatus.edited,
     menuStatus: MenuStatus.closed,
     sectionAction: SectionStatus.opened,
-    componentAction: ProductSectionContent1Component,
     sectionFilter: SectionStatus.opened,
     sectionModal: SectionStatus.closed,
     selectedFilter: [

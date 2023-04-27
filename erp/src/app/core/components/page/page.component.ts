@@ -5,7 +5,7 @@ import { MaterialModule } from 'src/app/material.module';
 import { ProductSectionContent1Component } from 'src/app/pages/product/sections/contents/product-section-content-1/product-section-content-1.component';
 import { ProductSectionContent2Component } from 'src/app/pages/product/sections/contents/product-section-content-2/product-section-content-2.component';
 import { SidebarContainerComponent } from '../sidebar-container/sidebar-container.component';
-import { ITabMenu, TabMenuContainerComponent } from '../tab-menu-container/tab-menu-container.component';
+import { TabMenuContainerComponent } from '../tab-menu-container/tab-menu-container.component';
 import { ITabPage, PageService } from './page.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class PageComponent implements OnInit {
 
   //@Select(ApplicationSelector.getActionComponent) actionComponent$! : Observable<any>;
   
-  public tab$!: Observable<ITabMenu[]>;
+  public tab$!: Observable<ITabPage[]>;
   public action$!: Observable<any>;
   public filter$!: Observable<any>;
 

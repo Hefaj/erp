@@ -1,0 +1,37 @@
+.page_desktop {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transition: padding .2s;
+
+    &--action {
+        padding-right: 120rem;
+    }
+
+    &--filter {
+        padding-left: 120rem;
+    }
+
+    &__sidebar {
+        position: absolute;
+        width: 120rem;
+        height: 100%;
+        top: 0;
+    }
+
+    &__content {
+        display: flex;
+        height: 100%;
+    }
+
+    &__filter {
+        left: 0;
+    }
+
+    &__action {
+        right: 0;
+    }
+}
