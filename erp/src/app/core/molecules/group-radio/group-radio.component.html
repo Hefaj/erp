@@ -1,0 +1,14 @@
+<ng-container *ngIf="data$ | async as data">
+
+  <mat-radio-group class="group-radio"
+                    (change)="changeSelection($event)">
+    <mat-radio-button *ngFor="let item of data.items"
+                      [value]="item.id"
+                      [labelPosition] = "item.labelPosition ?? 'after'"
+                      [disabled] = "item.disabled"
+                      [checked] = "item.checked">
+                      {{item.label}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+</ng-container>

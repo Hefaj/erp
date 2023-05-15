@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, NgxsOnInit } from '@ngxs/store';
 import { CloseMenu, Edited, HidenLoader, OpenMenu, ResetEdited, ShowLoader, ToggleSectionActionStatus, ToggleSectionFilterStatus } from './application.actions';
 import { patch } from '@ngxs/store/operators';
-import { ProductSectionContent1Component } from 'src/app/pages/product/sections/contents/product-section-content-1/product-section-content-1.component';
 
 export enum EditedStatus {
   notEdited, edited
@@ -97,5 +96,5 @@ export class ApplicationState {
   @Action(ToggleSectionActionStatus)
   public async toggleSectionActionStatus({ setState, getState }: stateContext) : Promise<void> {
     setState(patch({sectionAction: getState().sectionAction == SectionStatus.opened ? SectionStatus.closed : SectionStatus.opened }));
-  }  
+  }
 }

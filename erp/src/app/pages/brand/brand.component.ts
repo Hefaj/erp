@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IScenario, ITabPage } from 'src/app/core/components/page/page.service';
 import { ProductSectionAction1Component } from '../product/sections/actions/product-section-action-1/product-section-action-1.component';
 import { ProductSectionAction2Component } from '../product/sections/actions/product-section-action-2/product-section-action-2.component';
 import { ProductSectionAction3Component } from '../product/sections/actions/product-section-action-3/product-section-action-3.component';
@@ -17,21 +16,21 @@ import { ProductSectionFilter3Component } from '../product/sections/filters/prod
   styleUrls: ['./brand.component.scss']
 })
 export class BrandComponent {
-  public s1: IScenario = {
-    content: ProductSectionContent1Component,
-    filter: ProductSectionFilter1Component,
-    action: ProductSectionAction1Component
-  }; 
+  // public s1: IScenario = {
+  //   content: ProductSectionContent1Component,
+  //   filter: ProductSectionFilter1Component,
+  //   action: ProductSectionAction1Component
+  // };
 
-  public s2: IScenario = {
-    content: ProductSectionContent2Component,
-    filter: ProductSectionFilter2Component,
-    action: ProductSectionAction2Component
-  };
+  // public s2: IScenario = {
+  //   content: ProductSectionContent2Component,
+  //   filter: ProductSectionFilter2Component,
+  //   action: ProductSectionAction2Component
+  // };
 
-  public s3: IScenario = {
-    content: ProductSectionContent3Component,
-    filter: ProductSectionFilter3Component,
-    action: ProductSectionAction3Component
-  };
+  // public s3: IScenario = {
+  //   content: ProductSectionContent3Component,
+  //   filter: ProductSectionFilter3Component,
+  //   action: ProductSectionAction3Component
+  // };
 }

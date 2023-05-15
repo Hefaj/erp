@@ -1,0 +1,11 @@
+.sidebar-button {
+
+  border: 1px solid rgb(0, 255, 195);
+  border-radius: 30px;
+  margin: 10px;
+  overflow: hidden;
+
+  & > button {
+    width: 100%;
+  }
+}
