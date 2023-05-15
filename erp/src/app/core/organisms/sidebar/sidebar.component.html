@@ -19,8 +19,8 @@
       </div>
     </div>
 
-    <div [ngClass]="{'sidebar__right': true}">
-      overlay
+    <div [ngClass]="{'sidebar__right': true}" *ngIf="test()?.overlayComponent">
+      <ng-template  [ngComponentOutlet]="test()?.overlayComponent"></ng-template>
     </div>
   </div>
 

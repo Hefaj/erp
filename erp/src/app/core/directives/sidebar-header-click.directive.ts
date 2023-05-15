@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, Input, ViewContainerRef, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, ViewContainerRef, OnInit, ComponentRef } from '@angular/core';
 import { SidebarService } from '../organisms/sidebar/sidebar.service';
 import { SidebarHeaderComponent } from '../molecules/sidebar-header/sidebar-header.component';
 
@@ -9,23 +9,22 @@ import { SidebarHeaderComponent } from '../molecules/sidebar-header/sidebar-head
 export class SidebarHeaderClickDirective implements OnInit, AfterViewInit  {
   @Input('appSidebarHeaderClick') sidebarService!: SidebarService;
 
-  private headerClassName!: DOMTokenList;
+  private _componentRef!: ComponentRef<SidebarHeaderComponent>;
 
   public constructor(private el: ElementRef, private _viewContainerRef: ViewContainerRef) {
   }
 
   public ngOnInit(): void {
-    const componentRef = this._viewContainerRef.createComponent(SidebarHeaderComponent);
-    this.headerClassName = (componentRef.location.nativeElement.children[0].classList as DOMTokenList);
+    this._componentRef = this._viewContainerRef.createComponent(SidebarHeaderComponent);
   }
 
   public ngAfterViewInit(): void {
     const items: HTMLElement[] = Array.from(this.el.nativeElement.children);
+    const headerClassName = (this._componentRef.location.nativeElement.children[0].classList as DOMTokenList);
 
     for (let item of items) {
 
-      if (((item.getElementsByClassName(this.headerClassName.value)?.length) ?? 0) > 0) {
-
+      if (((item.getElementsByClassName(headerClassName.value)?.length) ?? 0) > 0) {
         const button = item.getElementsByTagName('button')[0]; // do zmiany na cos bardziej dynamicznego
 
         if (!button) return;
@@ -35,5 +34,7 @@ export class SidebarHeaderClickDirective implements OnInit, AfterViewInit  {
         });
       }
     }
+
+    this._componentRef.destroy();
   }
 }

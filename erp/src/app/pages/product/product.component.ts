@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Observable, of } from 'rxjs';
 import GroupRadioItem from 'src/app/core/molecules/group-radio/models/GroupRadioItem';
-import { SidebarHeaderComponent } from 'src/app/core/molecules/sidebar-header/sidebar-header.component';
 import { SidebarRadioComponent } from 'src/app/core/molecules/sidebar-radio/sidebar-radio.component';
 import SidebarData from 'src/app/core/organisms/sidebar/models/SidebarData';
+import { ProductSectionFilter1Component } from './sections/filters/product-section-filter-1/product-section-filter-1.component';
+import { ProductSectionFilter2Component } from './sections/filters/product-section-filter-2/product-section-filter-2.component';
+import { ProductSectionFilter3Component } from './sections/filters/product-section-filter-3/product-section-filter-3.component';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -15,78 +17,78 @@ export class ProductComponent {
   public constructor(private _store: Store) {
   }
 
-  public changed($event: any) {
-    console.warn($event);
-  }
+  // public data$: Observable<SidebarData> = of({
+  //   items: [
+  //     {
+  //       sidebarComponent: SidebarRadioComponent,
+  //       sidebarComponentData: {
+  //         sidebarHeader: {},
+  //         groupRadioData: {
+  //             items: [
+  //               {
+  //                 id: 1,
+  //                 label: 'A'
+  //               } as GroupRadioItem,
+  //               {
+  //                 id: 2,
+  //                 label: 'B'
+  //               } as GroupRadioItem,
+  //               {
+  //                 id: 3,
+  //                 label: 'C',
+  //                 checked: true,
+  //               } as GroupRadioItem,
+  //               {
+  //                 id: 4,
+  //                 label: 'D',
+  //                 disabled: true,
+  //               } as GroupRadioItem,
+  //               {
+  //                 id: 5,
+  //                 label: 'E'
+  //               } as GroupRadioItem
+  //             ]
+  //           }
+  //       },
+  //       overlayComponent: ProductSectionFilter1Component
+  //     },
+  //     {
+  //       sidebarComponent: SidebarRadioComponent,
+  //       sidebarComponentData: {
+  //         sidebarHeader: {},
+  //         groupRadioData: {
+  //             items: [
+  //               {
+  //                 id: 1,
+  //                 label: 'A'
+  //               } as GroupRadioItem,
+  //               {
+  //                 id: 2,
+  //                 label: 'B'
+  //               } as GroupRadioItem,
+  //             ]
+  //           }
+  //       },
+  //       overlayComponent: ProductSectionFilter2Component
+  //     },
 
-  public data$: Observable<SidebarData> = of({
-    items: [
-      {
-        sidebarComponent: SidebarRadioComponent,
-        sidebarComponentData: {
-          sidebarHeader: {},
-          groupRadioData: {
-              items: [
-                {
-                  id: 1,
-                  label: 'A'
-                } as GroupRadioItem,
-                {
-                  id: 2,
-                  label: 'B'
-                } as GroupRadioItem,
-                {
-                  id: 3,
-                  label: 'C',
-                  checked: true,
-                } as GroupRadioItem,
-                {
-                  id: 4,
-                  label: 'D',
-                  disabled: true,
-                } as GroupRadioItem,
-                {
-                  id: 5,
-                  label: 'E'
-                } as GroupRadioItem
-              ]
-            }
-        },
-      },
-      {
-        sidebarComponent: SidebarRadioComponent,
-        sidebarComponentData: {
-          sidebarHeader: {},
-          groupRadioData: {
-              items: [
-                {
-                  id: 1,
-                  label: 'A'
-                } as GroupRadioItem,
-                {
-                  id: 2,
-                  label: 'B'
-                } as GroupRadioItem,
-                {
-                  id: 3,
-                  label: 'C',
-                  checked: true,
-                } as GroupRadioItem,
-                {
-                  id: 4,
-                  label: 'D',
-                  disabled: true,
-                } as GroupRadioItem,
-                {
-                  id: 5,
-                  label: 'E'
-                } as GroupRadioItem
-              ]
-            }
-        },
-      },
-    ]
-  });
+  //     {
+  //       sidebarComponent: SidebarRadioComponent,
+  //       sidebarComponentData: {
+  //         sidebarHeader: {},
+  //         groupRadioData: {
+  //             items: [
+  //               {
+  //                 id: 1,
+  //                 label: 'A'
+  //               } as GroupRadioItem,
+  //             ]
+  //           }
+  //       },
+  //       overlayComponent: ProductSectionFilter3Component
+  //     },
+  //   ]
+  // });
 
 
 

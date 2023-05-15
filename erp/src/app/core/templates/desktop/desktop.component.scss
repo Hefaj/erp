@@ -1,0 +1,36 @@
+.desktop {
+  display: flex;
+  height: 100%;
+
+  position: relative;
+
+  &--action {
+    padding-right: 120rem;
+  }
+
+  &--filter {
+      padding-left: 120rem;
+  }
+
+  &__filter {
+
+    top: 0;
+    left: 0;
+  }
+
+  &__content {
+    width: 100%;
+    background-color: rgba(17, 0, 255, 0.33);
+  }
+
+
+  &__action {
+    top: 0;
+    right: 0;
+  }
+}
+
+.sidebar {
+  height: 100%;
+  position: absolute;
+}

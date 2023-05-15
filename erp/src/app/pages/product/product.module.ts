@@ -13,7 +13,7 @@ import { ProductSectionAction2Component } from './sections/actions/product-secti
 import { ProductSectionAction3Component } from './sections/actions/product-section-action-3/product-section-action-3.component';
 import { ProductSectionFilter2Component } from './sections/filters/product-section-filter-2/product-section-filter-2.component';
 import { ProductSectionFilter3Component } from './sections/filters/product-section-filter-3/product-section-filter-3.component';
-import { OrganismModule } from 'src/app/core/organisms/organism.module';
+import { TemplateModule } from 'src/app/core/templates/template.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { OrganismModule } from 'src/app/core/organisms/organism.module';
     ProductComponent,
   ],
   imports: [
-    OrganismModule,
+    TemplateModule,
     CommonModule,
     MaterialModule,
     NgxsModule.forFeature([ProductState]),

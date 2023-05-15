@@ -1,0 +1,12 @@
+<div [ngClass]="{'desktop': true, 'desktop--action': true, 'desktop--filter': true}">
+  <app-sidebar [ngClass]="{'desktop__filter sidebar': true}" [data$]="data$">
+  </app-sidebar>
+
+  <div [ngClass]="{'desktop__content': true}">
+    content
+  </div>
+
+  <app-sidebar [ngClass]="{'desktop__action sidebar': true}" [data$]="data$">
+  </app-sidebar>
+
+</div>
