@@ -1,3 +1,7 @@
+:host ::ng-deep .mat-mdc-tab-body-wrapper {
+  flex-grow: 1;
+}
+
 .desktop {
   display: flex;
   height: 100%;

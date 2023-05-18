@@ -21,7 +21,6 @@ export class GridTemplateAreasPipe implements PipeTransform {
       }
       areas.push(`"${row.join(' ')}"`);
     }
-    console.log(areas.join(' '));
     return areas.join(' ');
   }
 

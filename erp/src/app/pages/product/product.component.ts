@@ -44,24 +44,24 @@ export class ProductComponent {
       {
         tabLabel: 'TAB_1',
         grid: [
-          [this.s2]
+          [this.s1]
         ]
       },
-      // {
-      //   tabLabel: 'TAB_2',
-      //   grid: [
-      //     [this.s1, this.s2],
-      //     [this.s1, this.s3]
-      //   ]
+      {
+        tabLabel: 'TAB_2',
+        grid: [
+          [this.s1, this.s2],
+          [this.s1, this.s3]
+        ]
 
-      // },
-      // {
-      //   tabLabel: 'TAB_3',
-      //   grid: [
-      //     [this.s1, this.s2],
-      //     [this.s3, this.s3]
-      //   ]
-      // }
+      },
+      {
+        tabLabel: 'TAB_3',
+        grid: [
+          [this.s1, this.s2],
+          [this.s3, this.s3]
+        ]
+      }
     ]
   });
 }

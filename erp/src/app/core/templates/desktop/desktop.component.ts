@@ -17,10 +17,14 @@ import { DesktopGridPipe } from './pipes/desktop-grid.pipe';
 })
 export class DesktopComponent extends BaseComponent<DesktopConfig, DesktopData> implements OnInit {
 
+
   public constructor() {
     super({});
   }
+
   public ngOnInit(): void {
 
   }
+
+
 }
