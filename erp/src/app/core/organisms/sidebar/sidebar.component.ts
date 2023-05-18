@@ -18,7 +18,7 @@ import { SidebarContentItem } from './models/SidebarContentItem';
   providers: [SidebarService]
 })
 export class SidebarComponent extends BaseComponent<SidebarConfig, SidebarData> implements OnInit {
-  public test!: Signal<SidebarContentItem | undefined>;
+  public acviteItem!: Signal<SidebarContentItem | undefined>;
 
   public constructor(public sidebarService: SidebarService) {
     super({});
@@ -28,6 +28,6 @@ export class SidebarComponent extends BaseComponent<SidebarConfig, SidebarData> 
     this.data$.subscribe(x => {
       this.sidebarService.init(x);
     });
-    this.test = this.sidebarService.getActiveItem();
+    this.acviteItem = this.sidebarService.getActiveItem();
   }
 }

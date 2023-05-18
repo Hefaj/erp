@@ -1,0 +1,8 @@
+<ng-container *ngIf="{config: config$ | async, data: data$ | async} as component">
+  <ng-container *ngIf="component.data as data">
+
+    <app-sidebar [ngClass]="{'desktop__filter sidebar': true}" [data$]="data.filterSidebar | sidebarFilterItem">
+    </app-sidebar>
+
+  </ng-container>
+</ng-container>

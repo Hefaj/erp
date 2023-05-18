@@ -3,7 +3,6 @@ import { LabelComponent } from "./label/label.component";
 import { ButtonComponent } from "./button/button.component";
 import { CheckboxComponent } from "./checkbox/checkbox.component";
 import { IconComponent } from "./icon/icon.component";
-import { PillComponent } from "./pill/pill.component";
 import { SwitchComponent } from "./switch/switch.component";
 
 const components: (any[] | Type<any> | ModuleWithProviders<{}>)[] | undefined = [
@@ -11,7 +10,6 @@ const components: (any[] | Type<any> | ModuleWithProviders<{}>)[] | undefined = 
   CheckboxComponent,
   IconComponent,
   LabelComponent,
-  PillComponent,
   SwitchComponent,
 ];
 

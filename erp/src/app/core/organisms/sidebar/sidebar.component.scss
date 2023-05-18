@@ -22,6 +22,14 @@
   }
  }
 
+ &--overlay-left {
+  flex-direction: row;
+ }
+
+ &--overlay-right {
+  flex-direction: row-reverse;
+ }
+
  &__right {
  }
 }

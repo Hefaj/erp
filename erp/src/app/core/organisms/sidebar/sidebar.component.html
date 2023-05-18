@@ -1,27 +1,33 @@
-<ng-container *ngIf="data$ | async as data">
+<ng-container *ngIf="{config: config$ | async, data: data$ | async} as component">
 
-  <div [ngClass]="{'sidebar': true}">
-    <div [ngClass]="{'sidebar__left': true}">
-      <div [ngClass]="{'sidebar__left__header': true}">
-        <app-sidebar-button></app-sidebar-button>
-      </div>
+  <ng-container *ngIf="component.data as data">
 
-      <div [appSidebarHeaderClick]="sidebarService" [ngClass]="{'sidebar__left__content': true}">
-
-        <div *ngFor="let item of data.items">
-          <ng-template  [ngComponentOutlet]="item.sidebarComponent" [ngComponentOutletInjector]="item.sidebarComponentData | asInjector"></ng-template>
+    <div [ngClass]="{'sidebar': true,
+                    'sidebar--overlay-left': (component.config?.overlayDirection ?? 'left') === 'left',
+                    'sidebar--overlay-right': (component.config?.overlayDirection ?? 'left') === 'right'}">
+      <div [ngClass]="{'sidebar__left': true}">
+        <div [ngClass]="{'sidebar__left__header': true}">
+          <app-sidebar-button></app-sidebar-button>
         </div>
 
+        <div [appSidebarHeaderClick]="sidebarService" [ngClass]="{'sidebar__left__content': true}">
+
+          <div *ngFor="let item of data.items">
+            <ng-template  [ngComponentOutlet]="item.sidebarComponent" [ngComponentOutletInjector]="item.sidebarComponentData | asInjector"></ng-template>
+          </div>
+
+        </div>
+
+        <div [ngClass]="{'sidebar__left__footer': true}">
+          <app-sidebar-button></app-sidebar-button>
+        </div>
       </div>
 
-      <div [ngClass]="{'sidebar__left__footer': true}">
-        <app-sidebar-button></app-sidebar-button>
+      <div [ngClass]="{'sidebar__right': true}" *ngIf="acviteItem()?.overlayComponent">
+        <ng-template  [ngComponentOutlet]="acviteItem()?.overlayComponent"></ng-template>
       </div>
     </div>
 
-    <div [ngClass]="{'sidebar__right': true}" *ngIf="test()?.overlayComponent">
-      <ng-template  [ngComponentOutlet]="test()?.overlayComponent"></ng-template>
-    </div>
-  </div>
+  </ng-container>
 
 </ng-container>

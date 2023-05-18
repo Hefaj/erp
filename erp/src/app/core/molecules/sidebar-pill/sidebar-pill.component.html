@@ -1,0 +1,8 @@
+<ng-container *ngIf="data$ | async as data">
+
+  <app-sidebar-header [data$]="data.sidebarHeader | asObservable">
+  </app-sidebar-header>
+  <app-group-pill [data$]="data.groupPillData | asObservable">
+  </app-group-pill>
+
+</ng-container>

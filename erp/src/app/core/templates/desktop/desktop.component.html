@@ -1,12 +1,39 @@
-<div [ngClass]="{'desktop': true, 'desktop--action': true, 'desktop--filter': true}">
-  <app-sidebar [ngClass]="{'desktop__filter sidebar': true}" [data$]="data$">
-  </app-sidebar>
+<ng-container *ngIf="{config: config$ | async, data: data$ | async} as component">
 
-  <div [ngClass]="{'desktop__content': true}">
-    content
-  </div>
+  <ng-container *ngIf="component.data as data">
 
-  <app-sidebar [ngClass]="{'desktop__action sidebar': true}" [data$]="data$">
-  </app-sidebar>
+    <ng-container
+                  [ngTemplateOutlet]="section"
+                  [ngTemplateOutletContext]="{items: data.items}">
+    </ng-container>
 
-</div>
+    <ng-template #section let-items='items'>
+      <mat-tab-group animationDuration="0ms">
+
+        <ng-container *ngFor="let item of items">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              {{item.tabLabel}}
+            </ng-template>
+
+              <ng-container *ngIf="item.grid; else subItems">
+                {{item.grid | json}}
+              </ng-container>
+
+              <ng-template #subItems>
+
+                <ng-container
+                              [ngTemplateOutlet]="section"
+                              [ngTemplateOutletContext]="{items: item.subItems}">
+                </ng-container>
+
+              </ng-template>
+
+          </mat-tab>
+        </ng-container>
+
+      </mat-tab-group>
+    </ng-template>
+
+  </ng-container>
+</ng-container>

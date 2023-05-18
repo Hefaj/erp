@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PillComponent } from './pill.component';
+import { GroupPillComponent } from './group-pill.component';
 
-describe('PillComponent', () => {
-  let component: PillComponent;
-  let fixture: ComponentFixture<PillComponent>;
+describe('GroupPillComponent', () => {
+  let component: GroupPillComponent;
+  let fixture: ComponentFixture<GroupPillComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PillComponent]
+      imports: [GroupPillComponent]
     });
-    fixture = TestBed.createComponent(PillComponent);
+    fixture = TestBed.createComponent(GroupPillComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

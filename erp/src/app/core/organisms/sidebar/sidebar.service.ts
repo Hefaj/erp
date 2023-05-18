@@ -8,25 +8,24 @@ import { SidebarContentItem } from './models/SidebarContentItem';
 export class SidebarService {
 
   private _activeItem: WritableSignal<SidebarContentItem | undefined> = signal(undefined);
-  private _branin: WritableSignal<SidebarData | undefined> = signal(undefined);
+  private _collection: WritableSignal<SidebarData | undefined> = signal(undefined);
 
   public constructor() { }
 
   public getActiveItem(): Signal<SidebarContentItem | undefined> {
-    console.warn('getActiveItem call');
     return this._activeItem;
   }
 
   public init(data: SidebarData): void {
-    console.warn('getActiveItem call');
-    this._branin.set(data);
+    this._collection.set(data);
   }
 
   public clickPlus(idx: number): void {
-    if (idx >= (this._branin()?.items.length ?? 0)) {
+    if (idx >= (this._collection()?.items.length ?? 0)) {
       throw new Error("Index out of range");
     }
 
-    this._activeItem.set(this._branin()!.items.at(idx) === this._activeItem() ? undefined : this._branin()!.items.at(idx));
+    const selectedItem = this._collection()!.items.at(idx);
+    this._activeItem.set(selectedItem === this._activeItem() ? undefined : selectedItem);
   }
 }
