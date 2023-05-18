@@ -1,0 +1,12 @@
+<ng-container *ngIf="{config: config$ | async, data: data$ | async} as component">
+  <ng-container *ngIf="component.data as data">
+
+    <div [ngClass]="{'grid': true}" [ngStyle]="{'grid-template-areas': data.grid | gridTemplateAreas}">
+      <div *ngFor="let item of data.grid | gridArea" [ngStyle]="{'grid-area': item.name}">
+        <ng-template [ngComponentOutlet]="item"></ng-template>
+      </div>
+    </div>
+
+  </ng-container>
+</ng-container>
+

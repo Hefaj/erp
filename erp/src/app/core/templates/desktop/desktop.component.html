@@ -8,7 +8,7 @@
     </ng-container>
 
     <ng-template #section let-items='items'>
-      <mat-tab-group animationDuration="0ms">
+      <mat-tab-group style="height: 100%;" animationDuration="0ms">
 
         <ng-container *ngFor="let item of items">
           <mat-tab>
@@ -17,7 +17,8 @@
             </ng-template>
 
               <ng-container *ngIf="item.grid; else subItems">
-                {{item.grid | json}}
+                <app-grid [data$]="item.grid | desktopGrid">
+                </app-grid>
               </ng-container>
 
               <ng-template #subItems>

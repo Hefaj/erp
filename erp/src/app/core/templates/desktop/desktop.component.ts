@@ -4,11 +4,14 @@ import DesktopData from './models/DesktopData';
 import DesktopConfig from './models/DesktopConfig';
 import { BaseComponent } from '../../directives/BaseComponent';
 import { MaterialModule } from 'src/app/material.module';
+import { GridComponent } from '../../organisms/grid/grid.component';
+import { PipeModule } from '../../pipes/pipe.module';
+import { DesktopGridPipe } from './pipes/desktop-grid.pipe';
 
 @Component({
   selector: 'app-desktop',
   standalone: true,
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule, MaterialModule, GridComponent, PipeModule, DesktopGridPipe],
   templateUrl: './desktop.component.html',
   styleUrls: ['./desktop.component.scss']
 })
