@@ -1,0 +1,116 @@
+{
+  "name": "hawk",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "erp",
+  "sourceRoot": "app/department/hawk/hawk/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/app/department/hawk/hawk",
+        "index": "app/department/hawk/hawk/src/index.html",
+        "main": "app/department/hawk/hawk/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "app/department/hawk/hawk/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "app/department/hawk/hawk/src/favicon.ico",
+          "app/department/hawk/hawk/src/assets"
+        ],
+        "styles": ["app/department/hawk/hawk/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "app/department/hawk/hawk/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "app/department/hawk/hawk/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "options": {
+        "port": 4203,
+        "publicHost": "http://localhost:4203"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "hawk:build:production"
+        },
+        "development": {
+          "buildTarget": "hawk:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "hawk:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "app/department/hawk/hawk/**/*.ts",
+          "app/department/hawk/hawk/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "app/department/hawk/hawk/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "hawk:build",
+        "port": 4203,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "hawk:build:development"
+        },
+        "production": {
+          "buildTarget": "hawk:build:production"
+        }
+      }
+    }
+  }
+}
