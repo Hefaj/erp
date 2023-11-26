@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@h-core/ui/atom": ["lib/h-core/ui/atom/src/index.ts"],
+      "@h-core/ui/molecule": ["lib/h-core/ui/molecule/src/index.ts"],
+      "@h-core/ui/organism": ["lib/h-core/ui/organism/src/index.ts"],
+      "@h-core/ui/template": ["lib/h-core/ui/template/src/index.ts"],
+      "hawk/Module": [
+        "app/department/hawk/src/app/remote-entry/entry.module.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

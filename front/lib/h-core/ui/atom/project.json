@@ -1,0 +1,44 @@
+{
+  "name": "atom",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/h-core/ui/atom/src",
+  "prefix": "front",
+  "tags": ["template"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "lib/h-core/ui/atom/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "lib/h-core/ui/atom/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "lib/h-core/ui/atom/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "lib/h-core/ui/atom/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "lib/h-core/ui/atom/**/*.ts",
+          "lib/h-core/ui/atom/**/*.html",
+          "lib/h-core/ui/atom/package.json"
+        ]
+      }
+    }
+  }
+}

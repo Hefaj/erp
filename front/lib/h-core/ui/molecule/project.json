@@ -1,0 +1,44 @@
+{
+  "name": "molecule",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/h-core/ui/molecule/src",
+  "prefix": "front",
+  "tags": ["template"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "lib/h-core/ui/molecule/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "lib/h-core/ui/molecule/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "lib/h-core/ui/molecule/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "lib/h-core/ui/molecule/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "lib/h-core/ui/molecule/**/*.ts",
+          "lib/h-core/ui/molecule/**/*.html",
+          "lib/h-core/ui/molecule/package.json"
+        ]
+      }
+    }
+  }
+}
